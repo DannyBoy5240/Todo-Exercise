@@ -1,0 +1,109 @@
+@import 'variables';
+@import 'mixins';
+
+.addtask__btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    font-size: 1.6rem;
+    @include btn;
+
+    @media (min-width: 1024px){
+        width: 40%;
+    }
+}
+
+.addtask{
+  @include bgc_form;
+
+  &__form{
+    position: absolute;
+    width: 300px;
+    height: 350px;
+    background-color: #F5EFE7;
+    border: 2px solid black;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 20%;
+    &.darkmode{
+        background-color: #4e4e4e;
+        border-color: white;
+    }
+
+    .addtask__xmark{
+      @include xmark
+    }
+
+    .addtask__title{
+       @include formTitle
+    }
+
+    .addtask__textfield{
+        &.darkmode{
+            input, select, label{
+                color: white;
+            }
+        }
+    }
+
+    .addtask__select{
+        &.darkmode{
+            div{
+                color: white;
+            }
+        }
+    }
+
+    .addtask__label{
+        &.darkmode{
+            color: white;
+        }
+    }
+
+    .addtask__input, .addtask__select{
+        text-align: left; 
+        position: relative;
+        margin-right:20px;
+    }
+
+    .addtask__submit{
+        position: absolute;
+        bottom: 10%;
+        left: 20%;
+        right: 20%;
+        padding: $spacing / 2 0;
+        @include btn;
+    }
+  }
+}
+
+.addtask__confirm{
+    position: fixed;
+    bottom: 60px;
+    background-color: lightgreen;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    animation: addTaskAnimation 3s linear both;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+@keyframes addTaskAnimation{
+    0%{
+        right: -40%;
+    }
+    15%{
+        right: 40px;
+    }
+
+    85%{
+        right: 40px;
+    }
+
+    100%{
+        right: -40%;
+    }
+}
